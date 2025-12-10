@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <title>Mechatronics and Robotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="public/MechaLogo.png" rel="icon" />
+  <meta property="og:title" content="Mechatronics and Robotics" />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="receive.css">
+  <link rel="stylesheet" href="style.css">
+
+<body>
+<div class="header">
+    <img class="headerlogo" src="public/MechaLogo.png" alt="Logo">
+  </div>
+    <div class="maincontainer">
+        <div class="mainboxserve">
+  <div class="box">
+    <div>โต๊ะ</div>
+    <div class="table-number" id="tableNumber">-</div>
+    <div class="info" id="buttonInfo"></div>
+  </div>
+  </div>
+   <div class="mainboxserve">
+  <div class="box">
+    <div class="countdown" id="countdown">60</div>
+
+    <button class="ok-btn" onclick="window.location.href='index.html'">ตกลง</button>
+
+  </div>
+  </div>
+  </div>
+  
+
+  <script>
+    // ดึงข้อมูลจาก URL
+    const params = new URLSearchParams(window.location.search);
+    const table = params.get("table");
+    const button = params.get("button");
+
+    document.getElementById("tableNumber").textContent = table;
+    document.getElementById("buttonInfo").textContent = "มาจากปุ่ม: " + button;
+
+    // นับถอยหลัง 10 วินาที
+    let timeLeft = 60;
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "เสร็จสิ้น";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

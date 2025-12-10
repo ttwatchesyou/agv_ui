@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <title>Mechatronics and Robotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="public/MechaLogo.png" rel="icon" />
+  <meta property="og:title" content="Mechatronics and Robotics" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <img class="headerlogo" src="public/MechaLogo.png" alt="Logo">
+  </div>
+
+  <div class="maincontainer">
+
+    <div class="mainbox">
+      <div class="ImageFrame">
+        <canvas id="agvCanvas"></canvas>
+
+        <!-- ปุ่มโปร่งใสบน canvas -->
+        <button class="canvas-btn" id="btn1"></button>
+        <button class="canvas-btn" id="btn2"></button>
+        <button class="canvas-btn" id="btn3"></button>
+      </div>
+    </div>
+
+    <div class="mainboxlist">
+  <div class="FoodListBox">
+    <div class="title">รายการอาหาร</div>
+    <div class="FoodRows">
+      <div id="foodRow1" class="food-row"></div>
+      <div id="foodRow2" class="food-row"></div>
+      <div id="foodRow3" class="food-row"></div>
+    </div>
+  </div>
+ <button class="serve-btn" id="serveBtn">นำเสิร์ฟ</button>
+
+</div>
+
+
+  </div>
+
+  <!-- Modal เครื่องคิดเลข -->
+  <div id="calculatorModal" class="modal">
+    <div class="modal-content">
+      <div class="display" id="calcDisplay"></div>
+
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <button class="key">0</button>
+
+        <button class="key del">ลบ</button>
+        <button class="key send">ส่ง</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- สคริปต์ -->
+  <script src="agvCanvas.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* พื้นหลังทั้งหน้า */
+.receive-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Prompt", sans-serif;
+}
+
+/* กล่องข้อมูล */
+.receive-box {
+  background: white;
+  padding: 32px;
+  width: 320px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ข้อความ */
+.receive-box h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.receive-box p {
+  font-size: 1.3rem;
+  margin: 6px 0;
+}
+
+/* ตัวเลขสำคัญ */
+.table-number {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #ff6e00;
+}
+
+/* เวลานับถอยหลัง */
+.countdown {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #0091ff;
+}
+
+/* ปุ่มตกลง */
+.ok-btn {
+  margin-top: 22px;
+  width: 100%;
+  padding: 14px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.ok-btn:hover {
+  background-color: #218838;
+}
+

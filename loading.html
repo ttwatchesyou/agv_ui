@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <title>Mechatronics and Robotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="public/MechaLogo.png" rel="icon" />
+  <meta property="og:title" content="Mechatronics and Robotics" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e3271;
+      font-family: "Prompt", sans-serif;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .spinner {
+      width: 80px;
+      height: 80px;
+      border: 10px solid rgba(255,255,255,0.2);
+      border-top: 10px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const table = params.get("table");
+  const button = params.get("button");
+  setTimeout(() => {
+    window.location.href = `serve.html?table=${table}&button=${button}`;
+  }, 5000);
+</script>
+
+<body>
+  <div style="text-align:center">
+    <div class="spinner"></div>
+    นำเสิร์ฟ...
+  </div>
+</body>
+</html>
