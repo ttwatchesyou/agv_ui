@@ -51,20 +51,26 @@ const canvasButtons = document.querySelectorAll(".canvas-btn");
 // ปุ่มนำเสิร์ฟ
 const serveBtn = document.getElementById("serveBtn");
 
-serveBtn.addEventListener("click", () => {
-  let targetTable = null;
-  let targetButton = null;
-  canvasButtons.forEach(btn => {
-    if (btn.textContent.trim() !== "") {
-      targetTable = btn.textContent.trim();
-      targetButton = btn.id;
-    }
-  });
-  if (!targetTable) {
+serveBtn.addEventListener("click", ()=>{
+  const btn1 = document.getElementById("btn1").textContent.trim();
+  const btn2 = document.getElementById("btn2").textContent.trim();
+  const btn3 = document.getElementById("btn3").textContent.trim();
+
+  const queueMap = {};
+
+  if(btn1) queueMap[btn1] = queueMap[btn1] ? queueMap[btn1].concat("btn1") : ["btn1"];
+  if(btn2) queueMap[btn2] = queueMap[btn2] ? queueMap[btn2].concat("btn2") : ["btn2"];
+  if(btn3) queueMap[btn3] = queueMap[btn3] ? queueMap[btn3].concat("btn3") : ["btn3"];
+
+  const queue = Object.keys(queueMap).map(table => ({
+    table,
+    buttons: queueMap[table]
+  }));
+
+  if(queue.length === 0){
     alert("กรุณาเลือกหมายเลขก่อนทำการนำเสิร์ฟ");
     return;
   }
-  const url = `loading.html?table=${targetTable}&button=${targetButton}`;
-  window.location.href = url;
-});
 
+  window.location.href = `loading.html?queue=${encodeURIComponent(JSON.stringify(queue))}`;
+});

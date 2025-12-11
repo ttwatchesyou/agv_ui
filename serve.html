@@ -4,58 +4,69 @@
   <title>Mechatronics and Robotics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="public/MechaLogo.png" rel="icon" />
-  <meta property="og:title" content="Mechatronics and Robotics" />
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<link rel="stylesheet" href="receive.css">
+  <link rel="stylesheet" href="receive.css">
   <link rel="stylesheet" href="style.css">
-
+</head>
 <body>
 <div class="header">
     <img class="headerlogo" src="public/MechaLogo.png" alt="Logo">
-  </div>
-    <div class="maincontainer">
-        <div class="mainboxserve">
+</div>
+<div class="maincontainer">
+  <div class="mainboxserve">
   <div class="box">
-    <div>โต๊ะ</div>
+    <div class="table">Table</div>
     <div class="table-number" id="tableNumber">-</div>
     <div class="info" id="buttonInfo"></div>
   </div>
-  </div>
-   <div class="mainboxserve">
+</div>
+<div class="mainboxserve">
   <div class="box">
     <div class="countdown" id="countdown">60</div>
-
-    <button class="ok-btn" onclick="window.location.href='index.html'">ตกลง</button>
-
+    <button class="ok-btn" id="okBtn">ตกลง</button>
   </div>
-  </div>
-  </div>
-  
+</div>
 
-  <script>
-    // ดึงข้อมูลจาก URL
-    const params = new URLSearchParams(window.location.search);
-    const table = params.get("table");
-    const button = params.get("button");
+<script>
+const params = new URLSearchParams(window.location.search);
+const table = params.get("table");          // ตัวอย่าง: "12"
+const buttonsStr = params.get("buttons");   // ตัวอย่าง: "btn1,btn2"
+let queue = JSON.parse(decodeURIComponent(params.get("queue"))); // รายการที่เหลือ
 
-    document.getElementById("tableNumber").textContent = table;
-    document.getElementById("buttonInfo").textContent = "มาจากปุ่ม: " + button;
+const buttons = buttonsStr.split(",");
+const locations = buttons.map(btn => {
+  switch(btn){
+    case "btn1": return "ที่วางแก้วด้านซ้าย";
+    case "btn2": return "ที่วางแก้วด้านขวา";
+    case "btn3": return "ถาดที่ 1";
+  }
+});
 
-    // นับถอยหลัง 10 วินาที
-    let timeLeft = 60;
-    const countdownEl = document.getElementById("countdown");
+document.getElementById("tableNumber").textContent = table;
+document.getElementById("buttonInfo").textContent = locations.join(" + ");
 
-    const timer = setInterval(() => {
-      timeLeft--;
-      countdownEl.textContent = timeLeft;
+let timeLeft = 60;
+const countdownEl = document.getElementById("countdown");
 
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        countdownEl.textContent = "เสร็จสิ้น";
-      }
-    }, 1000);
-  </script>
+const timer = setInterval(()=>{
+  timeLeft--;
+  countdownEl.textContent = timeLeft;
+  if(timeLeft <=0){
+    clearInterval(timer);
+    countdownEl.textContent = "เสร็จสิ้น";
+    setTimeout(goNext,1000);
+  }
+},1000);
 
+function goNext(){
+  if(queue.length > 0){
+    window.location.href = `loading.html?queue=${encodeURIComponent(JSON.stringify(queue))}`;
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+document.getElementById("okBtn").addEventListener("click", goNext);
+</script>
 </body>
 </html>

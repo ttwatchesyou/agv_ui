@@ -4,9 +4,7 @@
   <title>Mechatronics and Robotics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="public/MechaLogo.png" rel="icon" />
-  <meta property="og:title" content="Mechatronics and Robotics" />
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -14,7 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #1e3271;
+      background: #008080 ;
       font-family: "Prompt", sans-serif;
       color: white;
       font-size: 2rem;
@@ -35,50 +33,41 @@
     }
   </style>
 </head>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const table = params.get("table");
-  const button = params.get("button");
-  setTimeout(() => {
-    window.location.href = `serve.html?table=${table}&button=${button}`;
-  }, 5000);
-</script>
-
 <body>
   <div style="text-align:center">
-  <div class="cat-loader">
-    
-    <!-- ดวงตา -->
-    <div class="cat-eyes">
-      <div class="cat-eye">
-        <div class="pupil"></div>
-        <div class="lid"></div>
+    <div class="cat-loader">
+      <!-- ดวงตา -->
+      <div class="cat-eyes">
+        <div class="cat-eye"><div class="pupil"></div><div class="lid"></div></div>
+        <div class="cat-eye"><div class="pupil"></div><div class="lid"></div></div>
       </div>
-      <div class="cat-eye">
-        <div class="pupil"></div>
-        <div class="lid"></div>
+      <!-- จมูก + หนวด -->
+      <div class="cat-face">
+        <div class="cat-nose"></div>
+        <div class="whisker w1"></div>
+        <div class="whisker w2"></div>
+        <div class="whisker w3"></div>
+        <div class="whisker w4"></div>
+        <div class="whisker w5"></div>
+        <div class="whisker w6"></div>
       </div>
     </div>
-
-    <!-- จมูก + หนวด -->
-    <div class="cat-face">
-      <div class="cat-nose"></div>
-      <div class="whisker w1"></div>
-      <div class="whisker w2"></div>
-      <div class="whisker w3"></div>
-      <div class="whisker w4"></div>
-      <div class="whisker w5"></div>
-      <div class="whisker w6"></div>
-    </div>
-
   </div>
 
-  <!-- <div style="margin-top: 25px;">
-    นำเสิร์ฟ...
-  </div> -->
-</div>
+ <script>
+const params = new URLSearchParams(window.location.search);
+let queue = JSON.parse(decodeURIComponent(params.get("queue")));
 
-</div>
+// เลือกโต๊ะแรก
+const current = queue.shift();
+
+// ส่งไป serve.html
+setTimeout(()=>{
+  window.location.href = `serve.html?table=${current.table}&buttons=${current.buttons.join(",")}&queue=${encodeURIComponent(JSON.stringify(queue))}`;
+}, 5000);
+</script>
+
+
 
 </body>
 </html>
