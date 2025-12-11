@@ -38,12 +38,12 @@ const locations = buttons.map(btn => {
   switch(btn){
     case "btn1": return "ที่วางแก้วด้านซ้าย";
     case "btn2": return "ที่วางแก้วด้านขวา";
-    case "btn3": return "ถาดที่ 1";
+    case "btn3": return "ถาดที่1";
   }
 });
 
 document.getElementById("tableNumber").textContent = table;
-document.getElementById("buttonInfo").textContent = locations.join(" + ");
+document.getElementById("buttonInfo").textContent = locations.join(" , ");
 
 let timeLeft = 60;
 const countdownEl = document.getElementById("countdown");
