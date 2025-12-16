@@ -57,8 +57,8 @@
 
 /* ปุ่มตกลง */
 .ok-btn {
-  margin-top: 22px;
-  width: 200px;
+   width: 120px;
+   height: 120px;
   padding: 14px;
   background-color: #28a745;
    display: flex;
@@ -67,7 +67,7 @@
   font-weight: bold;
   border: none;
    font-family: "Prompt", sans-serif;
-  border-radius: 10px;
+  border-radius: 50%;
   font-size: 1.4rem;
   color: white;
   cursor: pointer;

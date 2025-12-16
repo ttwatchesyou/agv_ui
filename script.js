@@ -11,6 +11,16 @@ document.querySelectorAll(".canvas-btn").forEach(btn => {
   });
 });
 
+ button = document.getElementById("AiBtn");
+  button.addEventListener("click", () => {
+    window.location.href = "file:///C:/Users/sopha/OneDrive/Desktop/project/agv_ui/ai_chat.html";
+  });
+
+ button = document.getElementById("Leave");
+  button.addEventListener("click", () => {
+    window.location.href = "file:///C:/Users/sopha/OneDrive/Desktop/project/agv_ui/index.html";
+  });
+
 // ปุ่มตัวเลข
 document.querySelectorAll(".key").forEach(key => {
   key.addEventListener("click", () => {

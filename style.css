@@ -239,7 +239,6 @@ body {
   align-items: center;
   justify-content: center;
   border: none;
-  margin-left:  120px; /* จัดให้อยู่ตรงกลางด้านล่าง */
   cursor: pointer;
   transition: 0.2s;
 }
@@ -381,3 +380,56 @@ body {
   margin-bottom: 8px;
 }
 
+.button-box {
+  gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home-button {
+   gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AI-btn {
+  width: 120px;
+   height: 120px;
+  padding: 14px;
+  background-color: #FF6D1F;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: none;
+   font-family: "Prompt", sans-serif;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  margin-top: 55px;
+}
+
+.AI-home-btn {
+  width: 120px;
+   height: 120px;
+  padding: 14px;
+  background-color: #FF6D1F;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: none;
+   font-family: "Prompt", sans-serif;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
